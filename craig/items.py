@@ -13,6 +13,8 @@ class CraigItem(scrapy.Item):
     # name = scrapy.Field()
     url_from = scrapy.Field()
     # The destination URL
+    html = scrapy.Field()
+    url = scrapy.Field()
     url_to = scrapy.Field()
 
     count = scrapy.Field()

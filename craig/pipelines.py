@@ -1,25 +1,19 @@
-from scrapy import signals
-from scrapy.xlib.pydispatch import dispatcher
-from scrapy.exporters import CsvItemExporter
-
+import os
+import hashlib
 class CraigPipeline(object):
-
-    def __init__(self):
-        dispatcher.connect(self.spider_opened, signals.spider_opened)
-        dispatcher.connect(self.spider_closed, signals.spider_closed)
-        self.files = {}
-
-    def spider_opened(self, spider):
-        file = open('%s_ads.csv' % spider.name, 'w+b')
-        self.files[spider] = file
-        self.exporter = CsvItemExporter(file)
-        self.exporter.start_exporting()
-
-    def spider_closed(self, spider):
-        self.exporter.finish_exporting()
-        file = self.files.pop(spider)
-        file.close()
-
     def process_item(self, item, spider):
-        self.exporter.export_item(item)
-        return item
+        file_name = item['url'] #chose whatever hashing func works for you  
+        concat = ""
+        html =''
+        i = 0
+        for i in range (0, len(file_name.split("//")[-1].split("/"))):
+          if i+1 == len(file_name.split("//")[-1].split("/")):
+            html+=file_name.split("//")[-1].split("/")[i]
+            break
+          concat+=file_name.split("//")[-1].split("/")[i] + '/'
+          i+=1
+        if not os.path.exists('files/'+concat):
+          os.makedirs('files/'+concat)
+
+        with open('files/%s.html' % concat + html, 'a') as f:
+            f.write(item['html'])

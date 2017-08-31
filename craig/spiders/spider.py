@@ -33,7 +33,7 @@ class MySpider(CrawlSpider):
             yield scrapy.Request(url, callback=self.parse, dont_filter=True)
     # Method for parsing items
     def parse_items(self, response):
-        f = open('HTML', 'a')
+        # f = open('HTML2', 'a')
         # The list of items that are found on the particular page
         items = []
         # Only extract canonicalized and unique links (with respect to the current page)
@@ -50,9 +50,11 @@ class MySpider(CrawlSpider):
                 item = CraigItem()
                 item['url_from'] = response.url
                 item['url_to'] = link.url
-                f.write(link.url + ' \n')
+                item['url'] = response.url
+                item['html'] = response.body
+                # f.write(link.url + ' \n')
                 #item['count'] = c
                 items.append(item)
-        f.close()
+        # f.close()
         # Return all the found items
         return items
