@@ -2,7 +2,7 @@ import os
 import hashlib
 class CraigPipeline(object):
     def process_item(self, item, spider):
-        file_name = item['url_to'] #chose whatever hashing func works for you  
+        file_name = item['url'] #chose whatever hashing func works for you  
         concat = ""
         html =''
         i = 0
@@ -18,10 +18,10 @@ class CraigPipeline(object):
           with open('files/%s' % (concat + html), 'a') as f:
               f.write(item['html'])
               f.close()
-        if html == 'robot.txt':
-          if not os.path.exists('files/robot/'+concat):
-            os.makedirs('files/robot/'+concat)
-            with open('files/robot/%s' % (concat + html), 'a') as f:
+        if html == 'robots.txt':
+          if not os.path.exists('files/robots/'+concat):
+            os.makedirs('files/robots/'+concat)
+            with open('files/robots/%s' % (concat + html), 'a') as f:
                 f.write(item['html'])
                 f.close()
 
