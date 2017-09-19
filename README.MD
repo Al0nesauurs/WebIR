@@ -5,5 +5,5 @@ Parut Singhapun
 # Run Program
 /Na/spiders/:~$ scrapy runspider spider.py
 
-#robots.txt location
+# robots.txt location
 /Na/spiders/robots/
