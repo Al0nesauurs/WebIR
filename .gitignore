@@ -1,4 +1,5 @@
 /HTML
-/craig/spiders/files
-/craig/spiders/craig_ads.csv
+/Na/spiders/files
+*.csv
 /HTML*
+/Na/spiders/HTML2

@@ -8,7 +8,7 @@
 import scrapy
 
 
-class CraigItem(scrapy.Item):
+class NaItem(scrapy.Item):
     # define the fields for your item here like:
     # name = scrapy.Field()
     url_from = scrapy.Field()

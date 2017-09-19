@@ -1,0 +1,10 @@
+User-agent: *
+Disallow: /kur3/
+Disallow: /kur/
+Disallow: /kuinformation/
+Disallow: /reward/
+Disallow: /phpmyadmin/
+Allow: /ku_resume/
+Allow: /forest/
+Allow: /world/
+Allow: /

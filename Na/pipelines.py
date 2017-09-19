@@ -1,6 +1,6 @@
 import os
 import hashlib
-class CraigPipeline(object):
+class NaPipeline(object):
     def process_item(self, item, spider):
         file_name = item['url'] #chose whatever hashing func works for you  
         concat = ""

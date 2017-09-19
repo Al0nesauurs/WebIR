@@ -1,10 +1,10 @@
 import scrapy
 from scrapy.linkextractor import LinkExtractor
 from scrapy.spiders import Rule, CrawlSpider
-from craig.items import CraigItem
+from Na.items import NaItem
 
 class MySpider(CrawlSpider):
-    name = "craig"
+    name = "SpiderNa"
     allowed_domains = [        
         "ku.ac.th",
 
@@ -12,7 +12,7 @@ class MySpider(CrawlSpider):
         ]
     # The URLs to start with
     start_urls = [
-        "http://cpe.ku.ac.th/"
+        "https://lms.ku.ac.th/"
         ]
 
     # This spider has one rule: extract all (unique and canonicalized) links, follow them and parse them using the parse_items method
@@ -36,14 +36,13 @@ class MySpider(CrawlSpider):
         if response.status == 200:
             items = []
             self.logger.info("Visited %s", response.url)
-            item = CraigItem()
+            item = NaItem()
             item['url'] = response.url
             item['html'] = response.body
             items.append(item)
             return items
     # Method for parsing items
     def parse3(self):
-        print('ALKU AKKBARAKKBARAKKBARAKKBARAKKBARAKKBARAKKBARAKKBARAKKBARAKKBARAKKBARAKKBARAKKBARAKKBARAKKBARAKKBARAKKBARAKKBARAKKBARAKKBAR')
         yield scrapy.Request(self.current_url+"robots.txt", callback=self.parse2)
 
     def parse_items(self, response):
@@ -61,7 +60,7 @@ class MySpider(CrawlSpider):
             chkrob = ''
             # If it is allowed, create a new item and add it to the list of found items
             if is_allowed:
-                item = CraigItem()
+                item = NaItem()
                 item['url_from'] = response.url
                 item['url_to'] = link.url
                 item['url'] = response.url
