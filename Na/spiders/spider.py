@@ -12,7 +12,7 @@ class MySpider(CrawlSpider):
         ]
     # The URLs to start with
     start_urls = [
-        "https://lms.ku.ac.th/"
+        "https://ocs.ku.ac.th"
         ]
 
     # This spider has one rule: extract all (unique and canonicalized) links, follow them and parse them using the parse_items method

@@ -12,16 +12,17 @@ class NaPipeline(object):
             break
           concat+=file_name.split("//")[-1].split("/")[i] + '/'
           i+=1
-        if not os.path.exists('files/'+concat):
-          os.makedirs('files/'+concat)
+
         if (".html" or ".htm") in html:
-          with open('files/%s' % (concat + html), 'a') as f:
+          if not os.path.exists('html/'+concat):
+            os.makedirs('html/'+concat)
+          with open('html/%s' % (concat + html), 'a') as f:
               f.write(item['html'])
               f.close()
         if html == 'robots.txt':
-          if not os.path.exists('files/robots/'+concat):
-            os.makedirs('files/robots/'+concat)
-            with open('files/robots/%s' % (concat + html), 'a') as f:
+          if not os.path.exists('html/robots/'+concat):
+            os.makedirs('html/robots/'+concat)
+            with open('html/robots/%s' % (concat + html), 'a') as f:
                 f.write(item['html'])
                 f.close()
 
