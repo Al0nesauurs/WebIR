@@ -28,14 +28,13 @@ for i in range (len(urlline)):
   chklink = []
   for link in soup.find_all('a'):
       if (link.get('href')):
-        if link.get('href')[len(link.get('href'))-1] == 'l':
           temp = link.get('href').split('/')
           chklink.append(temp[len(temp)-1])
           
 
   if len(chklink) != 0:
     for k in range (len(chklink)):
-      if (chklink[k][0] == '/'):
+      if (len(chklink[k])> 0 and chklink[k][0] == '/'):
           chklink[k] = chklink[k][1:]
 
       if chklink[k] in urlline or path[i].rstrip()+chklink[k] in urlline:
