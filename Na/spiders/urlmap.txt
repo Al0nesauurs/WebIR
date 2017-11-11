@@ -10122,17 +10122,6 @@ qa.ku.ac.th/webqaku/kubatko/PRqa2560.html
 qa.ku.ac.th/webqaku/kubatko/tamneap.html
 qa.ku.ac.th/webqaku/kubatko/qa_internal.html
 qa.ku.ac.th/webqaku/kubatko/scival_download.html
-qa.ku.ac.th/web2016/Newspaper/Newspaper2559/QAnewspaper2559.html
-qa.ku.ac.th/web2016/Newspaper/Newspaper2560/QAnewspaper2560.html
-qa.ku.ac.th/web2016/E-BOOK/e-book_in.html
-qa.ku.ac.th/web2016/E-BOOK/e-book_out2.html
-qa.ku.ac.th/web2016/E-BOOK/e-book_out1.html
-qa.ku.ac.th/web2016/
-qa.ku.ac.th/web2016/
-qa.ku.ac.th/web2016/
-qa.ku.ac.th/web2016/
-qa.ku.ac.th/web2016/
-qa.ku.ac.th/web2016/
 agri.eco.ku.ac.th/CASAF/index.html
 agri.eco.ku.ac.th/CASAF/researchers.html
 pirun.ku.ac.th/manual.html

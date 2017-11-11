@@ -1,6 +1,6 @@
 import numpy as np
 from scipy.sparse import csc_matrix
-
+localpl = open('pagerank.txt', 'a')
 def pageRank(G, s = .85, maxerr = .001):
 
     n = G.shape[0]
@@ -29,6 +29,8 @@ def pageRank(G, s = .85, maxerr = .001):
 
             r[i] = ro.dot( Ii*s + Si*s + Ti*(1-s) )
     # return normalized pagerank
+    with open('pagerank2.txt', "w") as pl:
+        np.savetxt(pl, r/sum(r) , newline="\n")
     return r/sum(r)
 
 with open('456.txt') as f:
@@ -44,9 +46,7 @@ for i in range (len(data)):
         if data[i][j] != -1:
             Mat[i][data[i][j]-1] = 1
 G = np.array(Mat)
-with open('pagerank.txt') as pl:
-    np.savetxt(pl,pageRank(G,s=.85) , newline="\n")
 
-
+np.savetxt('pagerank.txt',pageRank(G,s=.85) , newline="\n")
 
 
