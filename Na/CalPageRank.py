@@ -29,11 +29,11 @@ def pageRank(G, s = .85, maxerr = .001):
 
             r[i] = ro.dot( Ii*s + Si*s + Ti*(1-s) )
     # return normalized pagerank
-    with open('pagerank2.txt', "w") as pl:
+    with open('pagerank_reserved.txt', "w") as pl:
         np.savetxt(pl, r/sum(r) , newline="\n")
     return r/sum(r)
 
-with open('456.txt') as f:
+with open('testout.txt') as f:
     content = f.readlines()
 # you may also want to remove whitespace characters like `\n` at the end of each line
 content = [x.strip() for x in content]
@@ -47,6 +47,6 @@ for i in range (len(data)):
             Mat[i][data[i][j]-1] = 1
 G = np.array(Mat)
 
-np.savetxt('pagerank.txt',pageRank(G,s=.85) , newline="\n")
+np.savetxt('pagerank_score.txt',pageRank(G,s=.85) , newline="\n")
 
 
